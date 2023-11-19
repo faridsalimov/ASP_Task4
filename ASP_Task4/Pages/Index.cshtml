@@ -1,0 +1,51 @@
+﻿@page
+@model ASP_Task4.Pages.IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+
+<table style="margin-left:30px" class="table">
+    <thead style="padding-bottom:30px">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">#</th>
+            <th scope="col">#</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Products)
+        {
+            <tr>
+                <td scope="row">@item.ID</td>
+                <td scope="row">@item.Name</td>
+                <td scope="row">@item.Price ₼</td>
+                <td scope="row">
+                    <a class="btn btn-outline-primary" asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
+                </td>
+                <td>
+                    <form method="post">
+                        <input type="hidden" asp-for="ProductIdToDelete" value="@item.ID"/>
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form class="col-5" method="post">
+    <div class="mb-3">
+        <label class="form-label">Product Name</label>
+        <input asp-for="Product.Name" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Product Price</label>
+        <input asp-for="Product.Price" class="form-control"/>
+    </div>
+
+    <button type="submit" class="btn btn-success">Add Product</button>
+</form>

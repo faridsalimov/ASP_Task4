@@ -1,0 +1,12 @@
+﻿CREATE DATABASE ProductDB
+GO
+USE ProductDB
+
+CREATE TABLE Products (
+	[ID] INT PRIMARY KEY IDENTITY(1, 1) NOT NULL,
+	[Name] NVARCHAR(50) NOT NULL,
+	[Price] MONEY DEFAULT(0) NOT NULL
+)
+
+INSERT INTO Products([Name],[Price])
+VALUES('Test', 1.0),('Cola', 0.7)

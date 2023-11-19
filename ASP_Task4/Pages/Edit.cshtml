@@ -1,0 +1,23 @@
+﻿@page
+@model ASP_Task4.Pages.EditModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+
+<form method="post">
+    <div class="mb-3" hidden>
+        <input asp-for="Product.ID" class="form-control" hidden/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Product Name</label>
+        <input asp-for="Product.Name" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Product Price</label>
+        <input asp-for="Product.Price" class="form-control"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Product</button>
+</form>
